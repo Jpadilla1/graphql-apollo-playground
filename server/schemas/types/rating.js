@@ -2,10 +2,12 @@ const { gql } = require("apollo-server");
 
 const Rating = gql`
   type Rating {
+    id: String!;
     responsibility: Int!;
     amountOfWork: Int!;
     personality: Int!;
     difficulty: Int!;
+    date: Date!;
   }
 
   input CreateRatingInput {

@@ -26,7 +26,8 @@ const Professor = gql`
   }
 
   extend type Query {
-    searchProfessors(name: String!)
+    searchProfessors(name: String!): [Professor]
+    professors: [Professor]
   }
 `;
 
