@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server");
+const { gql } = require("apollo-server")
 
 const Professor = gql`
   enum Gender {
@@ -7,30 +7,30 @@ const Professor = gql`
   }
 
   type Professor {
-    id: String!;
-    name: String!;
-    college: String!;
-    department: String!;
+    id: String!
+    name: String!
+    college: String!
+    department: String!
     gender: Gender!
   }
 
   input CreateProfessorInput {
-    name: String!;
-    college: String!;
-    department: String!;
+    name: String!
+    college: String!
+    department: String!
     gender: Gender!
   }
 
-  extend type Mutation {
+  type Mutation {
     createProfessor(params: CreateProfessorInput!): Professor
   }
 
-  extend type Query {
+  type Query {
     searchProfessors(name: String!): [Professor]
     professors: [Professor]
   }
-`;
+`
 
 module.exports = {
   Professor,
-};
+}

@@ -1,9 +1,9 @@
-const uuid = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 
 const professors = {};
 
 const createProfessor = (params) => {
-  const id = uuid();
+  const id = uuidv4();
 
   const p = {
     id,
@@ -21,7 +21,7 @@ const createProfessor = (params) => {
 }
 
 const searchProfessors = (name) => {
-  return Object.values(professors).filter(p => p.name === name);
+  return Object.values(professors).filter(p => p.name.toLowerCase().startsWith(name.toLowerCase()));
 }
 
 const findByProfessorId = (id) => {
@@ -29,14 +29,14 @@ const findByProfessorId = (id) => {
 }
 
 const createComment = (params) => {
-  const p = findByProfessorId(params.id);
+  const p = findByProfessorId(params.professorId);
 
   if (!p) {
     return null;
   }
 
   const c = {
-    id: uuid(),
+    id: uuidv4(),
     message: params.message,
     date: new Date(),
   };
@@ -49,14 +49,14 @@ const createComment = (params) => {
 }
 
 const createRating = (params) => {
-  const p = findByProfessorId(params.id);
+  const p = findByProfessorId(params.professorId);
 
   if (!p) {
     return null;
   }
 
   const r = {
-    id: uuid(),
+    id: uuidv4(),
     responsibility: params.responsibility,
     amountOfWork: params.amountOfWork,
     personality: params.personality,

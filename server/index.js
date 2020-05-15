@@ -1,30 +1,8 @@
 const { ApolloServer, gql } = require("apollo-server");
-const { books } = require("./data/index");
+const schema = require('./schemas');
 
 
-const typeDefs = gql`
-  type Book {
-    title: String
-    author: String
-  }
-
-  type Query {
-    books: [Book]
-  }
-
-  extend type Query {
-    cosas: [Book]
-  }
-`;
-
-const resolvers = {
-  Query: {
-    books: () => books,
-    cosas: () => books,
-  },
-};
-
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({ schema });
 
 // The `listen` method launches a web server.
 server.listen().then(({ url }) => {

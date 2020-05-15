@@ -1,26 +1,26 @@
-const { gql } = require("apollo-server");
+const { gql } = require("apollo-server")
 
 const Comment = gql`
   type Comment {
-    id: String!;
-    message: String!;
-    date: Date;
+    id: String!
+    message: String!
+    date: Date
   }
 
   extend type Professor {
-    comments: [Comment];
+    comments: [Comment]
   }
 
   input CreateCommentInput {
-    professorId: String!;
-    message: String!;
+    professorId: String!
+    message: String!
   }
 
   extend type Mutation {
     createComment(params: CreateCommentInput!): Comment
   }
-`;
+`
 
 module.exports = {
   Comment,
-};
+}
