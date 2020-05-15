@@ -1,0 +1,7 @@
+mutation AddComment($params: CreateCommentInput!) {
+  createComment(params: $params) {
+    id
+    message
+    date
+  }
+}

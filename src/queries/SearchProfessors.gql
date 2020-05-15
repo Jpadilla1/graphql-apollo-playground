@@ -1,0 +1,18 @@
+query SearchProfessors($name: String!) {
+  professors {
+    id,
+    name,
+    college,
+    department,
+    gender,
+    comments {
+      id,
+      message
+    },
+    averageRating,
+    avgResponsibility,
+    avgAmountOfWork,
+    avgPersonality,
+    avgDifficulty
+  }
+}

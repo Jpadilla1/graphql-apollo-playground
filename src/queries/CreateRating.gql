@@ -1,0 +1,5 @@
+mutation AddRating($params: CreateRatingInput!) {
+  createRating(params: $params) {
+    id
+  }
+}

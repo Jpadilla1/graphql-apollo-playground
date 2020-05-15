@@ -1,0 +1,19 @@
+query GetAllProfessors {
+  professors {
+    id,
+    name,
+    college,
+    department,
+    gender,
+    comments {
+      id,
+      message,
+      date,
+    },
+    averageRating,
+    avgResponsibility,
+    avgAmountOfWork,
+    avgPersonality,
+    avgDifficulty
+  }
+}
